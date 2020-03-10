@@ -2,12 +2,24 @@ import express from "express";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import RateLimit from "express-rate-limit";
+import config from "config";
 
+// load configurations
+const port = config.get("app.port");
+const db = config.get("database.url");
+// const prefix = config.get("api.prefix");
 const app  =  express();
-const port = 3000;
 
 // Using helmet to increase security
 app.use(helmet());
+
+// Middleware to add header to requests
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization,x-api-key");
+    next();
+});
 
 // Using Limiter to prevent attacks
 new RateLimit({
@@ -23,7 +35,7 @@ app.use(express.json());
 
 // Setup mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/RUUsersDB',{
+mongoose.connect(db,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
