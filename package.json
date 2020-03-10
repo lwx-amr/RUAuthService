@@ -1,0 +1,43 @@
+{
+  "name": "login-service",
+  "version": "1.0.0",
+  "description": "Authentication service for our rank up microservices project",
+  "main": "service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./service.js --exec babel-node -e js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwx-amr/RULoginService.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "JWT",
+    "Mongo"
+  ],
+  "author": "Amr Hussien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lwx-amr/RULoginService/issues"
+  },
+  "homepage": "https://github.com/lwx-amr/RULoginService#readme",
+  "dependencies": {
+    "config": "^3.3.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.1",
+    "helmet": "^3.21.3",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
