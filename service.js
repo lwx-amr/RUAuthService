@@ -3,17 +3,18 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import RateLimit from "express-rate-limit";
 import config from "config";
+import loginRoutes  from "./api/loginRoutes";
 
 // load configurations
 const port = config.get("app.port");
 const db = config.get("database.url");
-// const prefix = config.get("api.prefix");
+const prefix = config.get("api.prefix");
 const app  =  express();
 
 // Using helmet to increase security
 app.use(helmet());
 
-// Middleware to add header to requests
+// Middleware to add header to response of the any request
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -40,8 +41,14 @@ mongoose.connect(db,{
     useUnifiedTopology: true
 });
 
+// Calling service routes
+app.use(prefix,loginRoutes);
 
 // Running server
-app.listen(port, () => {
+const listen = app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+// Export port
+// module.exports= app;
+module.exports.port=listen.address().port;
