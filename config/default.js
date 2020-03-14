@@ -3,10 +3,8 @@ require('dotenv').config();
 module.exports = {
     app: {
         name: "authenticationsystem",
-        superSecret: "vamosrankup",
         baseUrl: `http://localhost:`,
-        port: process.env.PORT,
-        expiresIn: 86400
+        port: process.env.PORT
     },
     api: {
         prefix: '^/api/v[1-9]',
@@ -14,5 +12,9 @@ module.exports = {
     },
     database: {
         url: process.env.DB_URL,
+    },
+    token: {
+        jwtKey: 'RUSecrect%2020',
+        expiresIn: 3600
     }
 };
