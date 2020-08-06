@@ -1,5 +1,5 @@
 {
-  "name": "login-service",
+  "name": "Auth-service",
   "version": "1.0.0",
   "description": "Authentication service for our rank up microservices project",
   "main": "service.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lwx-amr/RULoginService.git"
+    "url": "git+https://github.com/lwx-amr/RUAuthService.git"
   },
   "keywords": [
     "Node.js",
@@ -25,18 +25,19 @@
   "author": "Amr Hussien",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lwx-amr/RULoginService/issues"
+    "url": "https://github.com/lwx-amr/RUAuthService/issues"
   },
-  "homepage": "https://github.com/lwx-amr/RULoginService#readme",
+  "homepage": "https://github.com/lwx-amr/RUAuthService#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcryptjs": "^2.4.3",
     "config": "^3.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.1.1",
     "helmet": "^3.21.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.4"
+    "mongoose": "^5.9.4",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -46,8 +47,8 @@
     "chai": "^4.2.0",
     "chai-json": "^1.0.0",
     "eslint": "^6.8.0",
-    "mocha": "^7.1.0",
-    "nodemon": "^2.0.2",
+    "mocha": "^8.1.1",
+    "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }
 }

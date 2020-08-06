@@ -1,17 +1,21 @@
 module.exports = {
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  },
-  "env": {
-    "node": true,
-    "es6": true
-  },
-  "extends": "eslint:recommended",
-  "rules": {
-    "no-multiple-empty-lines": "warn",
-    "no-var": "error",
-    "prefer-const": "error",
-    "indent": ["error", 4]
-  }
+    env: {
+        es2020: true,
+        node: true,
+        browser: true
+    },
+    extends: [
+        'airbnb-base'
+    ],
+    parserOptions: {
+        ecmaVersion: 11,
+        sourceType: 'module'
+    },
+    rules: {
+        'no-multiple-empty-lines': 'warn',
+        'no-var': 'error',
+        'prefer-const': 'error',
+        'comma-dangle': 0,
+        indent: ['error', 4],
+    }
 };

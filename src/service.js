@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import RateLimit from "express-rate-limit";
 import config from "config";
-import loginRoutes  from "./api/loginRoutes";
+import authRoutes  from "./api/authRoutes";
 
 // load configurations
 const port = config.get("app.port");
@@ -42,7 +42,7 @@ mongoose.connect(db,{
 });
 
 // Calling service routes
-app.use(prefix,loginRoutes);
+app.use(prefix,authRoutes);
 
 // Running server
 const listen = app.listen(port, () => {
