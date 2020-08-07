@@ -36,9 +36,9 @@ const checkAuth = async (req, res, next) => {
     try {
         const token = req.cookies['rankup-jt'];
         if (!token)
-            res.redirect(401, '/login');
+            res.redirect(200, '/login');
         const decoded_token = jwt.verify(token, config.get("token.jwtKey"));
-        const user = await Users.findOne({ _id: decoded_token._id, 'tokens.token': token })
+        const user = await Users.findOne({ _id: decoded_token.id, 'tokens.token': token })
         if (!user) throw new Error();
         req.token = token;
         req.user = user;
