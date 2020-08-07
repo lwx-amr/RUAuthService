@@ -1,11 +1,11 @@
-import express from "express";
-import mongoose from "mongoose";
-import helmet from "helmet";
-import RateLimit from "express-rate-limit";
-import config from "config";
-import cors from "cors";
-import authRoutes  from "./api/authRoutes";
-import cookieParser from "cookie-parser";
+const express = require("express");
+const mongoose = require("mongoose");
+const helmet = require("helmet");
+const RateLimit = require("express-rate-limit");
+const config = require("config");
+const cors = require("cors");
+const authRoutes  = require("./api/authRoutes");
+const cookieParser = require("cookie-parser");
 
 // load configurations
 const port = config.get("app.port");
@@ -63,4 +63,3 @@ const listen = app.listen(port, () => {
 
 // Export port
 module.exports= app;
-// module.exports.port=listen.address().port;

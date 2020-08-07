@@ -1,5 +1,5 @@
-import express from "express";
-import { login, checkAuth, logOut, registerUser, loggedBefore} from "../service/authController";
+const express = require("express");
+const { login, checkAuth, logOut, registerUser, loggedBefore} = require("../service/authController");
 
 const router = express.Router();
 

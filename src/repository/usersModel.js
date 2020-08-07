@@ -1,12 +1,11 @@
-import mongoose from "mongoose";
-import validator from 'validator';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import config from "config";
+const mongoose = require("mongoose");
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require("config");
 
 const Schema = mongoose.Schema;
-
-const userSchema = new Schema({
+const userSchema =  Schema({
     firstName:{
         type:String,
         required: true,

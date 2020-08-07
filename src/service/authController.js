@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
-import config from "config";
-import Users from '../repository/usersModel';
+const jwt = require("jsonwebtoken");
+const config = require("config");
+const Users = require('../repository/usersModel');
 
 // Register user in database
 const registerUser  = async (req, res) =>{

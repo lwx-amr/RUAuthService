@@ -9,11 +9,11 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 # Bundle app source
-COPY build ./build
+COPY src ./src
 COPY config ./config
 
 # Choose port for service
-EXPOSE 3002
+EXPOSE 3001
 
 # Commands to run app
 CMD ["npm","run", "prod"]
