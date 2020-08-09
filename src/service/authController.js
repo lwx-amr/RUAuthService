@@ -17,14 +17,12 @@ const registerUser  = async (req, res) =>{
 // Function to check login
 const login  = async (req, res) =>{
     const {email, password} = req.body;
-    console.log(email + "   " + password);
     try {
         const cookieOptions = {
             httpOnly: true,
         };
         const user = await Users.findByCredentials(email, password);
         const token = await user.generateAuthToken();
-        console.log("hey, ", user + "   " + token);
         res.cookie('rankup-jt', token, cookieOptions).send({user, token });
     } catch (e) {
         res.status(400).send("Error!");
@@ -48,7 +46,7 @@ const checkAuth = async (req, res, next) => {
     }
 };
 
-const logOut = async () => {
+const logOut = async (req, res, next) => {
     try {
         const { user, token } = req;
         user.tokens = user.tokens.filter((t) => t.token !== token);
